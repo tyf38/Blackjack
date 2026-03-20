@@ -1,0 +1,47 @@
+nb_joueurs = int(input("Nombre de joueurs : "))
+joueurs = []
+
+for i in range(nb_joueurs):
+    main = [tirer_carte(cartes), tirer_carte(cartes)]
+    joueurs.append(main)
+
+#meme code copier mais modifer
+
+for i in range(nb_joueurs):
+    joueur = joueurs[i]
+    print(f"\n--- Joueur {i+1} ---")
+
+    while True:
+        print("Tes cartes :", joueur, "Score :", calcul_score(joueur))
+        print("Carte visible du croupier :", croupier[0])
+
+        score_j = calcul_score(joueur)
+
+        if score_j > 21:
+            print("Tu as dépassé 21, tu perds.")
+            break
+
+        choix = input("Carte ou rester ? (c/r): ").lower()
+
+        if choix == "c":
+            joueur.append(tirer_carte(cartes))
+        else:
+            break
+
+
+#dernier partie du code modifier
+
+for i in range(nb_joueurs):
+    score_joueur = calcul_score(joueurs[i])
+    score_croupier = calcul_score(croupier)
+
+    print(f"\nRésultat Joueur {i+1} :")
+
+    if score_joueur > 21:
+        print("Perdu.")
+    elif score_croupier > 21 or score_joueur > score_croupier:
+        print("Gagné.")
+    elif score_joueur == score_croupier:
+        print("Égalité.")
+    else:
+        print("Perdu.")
