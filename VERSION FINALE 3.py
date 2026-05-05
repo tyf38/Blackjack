@@ -10,7 +10,7 @@ class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Blackjack")
-        self.root.geometry("500x400")
+        self.root.geometry("500x600")
         self.current_frame = None
         self.show_menu()
 
